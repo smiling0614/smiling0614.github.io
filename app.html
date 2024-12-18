@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>增重App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .card {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        h2 {
+            color: #333;
+        }
+        .food-list, .exercise-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .food-item, .exercise-item {
+            background-color: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>增重App</h1>
+    <p>輕鬆增重，健康生活</p>
+</header>
+
+<div class="container">
+    <!-- 用戶資料輸入 -->
+    <div class="card">
+        <h2>基本資料</h2>
+        <form id="userForm">
+            <input type="number" id="age" placeholder="年齡" required>
+            <input type="number" id="height" placeholder="身高 (cm)" required>
+            <input type="number" id="weight" placeholder="體重 (kg)" required>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+
+    <!-- 餐飲建議 -->
+    <div class="card">
+        <h2>增重餐飲建議</h2>
+        <ul class="food-list">
+            <li class="food-item">全脂牛奶</li>
+            <li class="food-item">堅果類（例如杏仁、核桃）</li>
+            <li class="food-item">高蛋白食物（例如雞胸肉、鮭魚）</li>
+            <li class="food-item">牛油果</li>
+            <li class="food-item">蛋白質粉</li>
+        </ul>
+    </div>
+
+    <!-- 運動建議 -->
+    <div class="card">
+        <h2>增重運動建議</h2>
+        <ul class="exercise-list">
+            <li class="exercise-item">深蹲</li>
+            <li class="exercise-item">推舉</li>
+            <li class="exercise-item">硬舉</li>
+            <li class="exercise-item">引體向上</li>
+            <li class="exercise-item">臥推</li>
+        </ul>
+    </div>
+
+    <!-- 進度追蹤 -->
+    <div class="card">
+        <h2>我的增重進度</h2>
+        <p>體重: <span id="progressWeight">--</span> kg</p>
+        <p>目標體重: <span id="goalWeight">--</span> kg</p>
+    </div>
+</div>
+
+<script>
+    document.getElementById("userForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        const age = document.getElementById("age").value;
+        const height = document.getElementById("height").value;
+        const weight = document.getElementById("weight").value;
+        
+        // 計算並更新增重目標
+        const goalWeight = parseInt(weight) + 5; // 假設目標體重為現有體重 + 5 kg
+        document.getElementById("goalWeight").textContent = goalWeight;
+        document.getElementById("progressWeight").textContent = weight;
+    });
+</script>
+
+</body>
+</html>
